@@ -1,0 +1,19 @@
+* {
+    margin: 0px;
+}
+
+body  {
+    height: 100vh;
+    /*border: solid red;*/
+}
+
+#machine_list > div {
+    overflow-y: scroll;
+}
+
+
+.info_maintenance {
+    width: 25%;
+    height: 100px;
+    
+}
