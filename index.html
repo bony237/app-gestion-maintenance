@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Application de maintenance</title>
+        <title>Application de maintenance : Informations Générales</title>
         <link rel="stylesheet" href="style/bootstrap-4.3.1-dist/css/bootstrap.css">
         <link rel="stylesheet" href="style/index.css">
     </head>
@@ -79,110 +79,49 @@
 
             <div class="col-9 p-4 bg-secondary position-relative" id="machine_dashboard">
                 <div class="tab-content">
-                    <div class="tab-pane fade show active" id="list-test1" role="tabpanel">
-                        <div class="font-weight-bolder" >
-                            <div class="d-flex flex-wrap justify-content-center">
+                    <div class="tab-pane fade show active" id={{machine.idText}} role="tabpanel">
+                        <div class="d-none infosToSwitch">
+                            <div class="font-weight-bolder d-flex flex-wrap justify-content-center" >
                                 <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">586</p>
+                                    <p class="h5 text-center text-light"><u>Machine défaillante</u></p>
+                                    <p class="h4 text-center mt-3">{{machine.name}}</p>
                                 </div>
                                 <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">586</p>
+                                    <p class="h5 text-center text-light"><u>Défaillance</u></p>
+                                    <p class="h4 text-center mt-3"> {{machine.typeDefaillance}} </p>
                                 </div>
                                 <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">586</p>
+                                    <p class="h5 text-center text-light"><u>Date de défaillance</u></p>
+                                    <p class="h4 text-center mt-3"> {{machine.dateDefaillance}} </p>
                                 </div>
                                 <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">586</p>
+                                    <p class="h5 text-center text-light"><u>Date d'intervention</u></p>
+                                    <p class="h4 text-center mt-3"> {{machine.dateIntervention}} </p>
                                 </div>
                                 <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">586</p>
+                                    <p class="h5 text-center text-light"><u>Equipe d'intervention</u></p>
+                                    <p class="h4 text-center mt-3"> {{machine.teamIntervention}} </p>
                                 </div>
                                 <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">586</p>
+                                    <p class="h5 text-center text-light"><u>Durée d'intervention</u></p>
+                                    <p class="h4 text-center mt-3"> {{machine.interventionDuration}} </p>
                                 </div>
                                 <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">586</p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">586</p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">586</p>
+                                    <p class="h5 text-center text-light"><u>Date de remise en service</u></p>
+                                    <p class="h4 text-center mt-3"> {{machine.dateServiceOn}} </p>
                                 </div>
                             </div>
-
-                            <div class="text-center mt-3">
-                                <button class="mt-5 btn btn-lg btn-outline-light col-3 font-weight-bolder">
-                                    Autres
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="bg-danger d-none">
-                            bjr
                         </div>
                         
-                    </div>
-                    <div class="tab-pane fade" id="list-test2" role="tabpanel">
-                        <div class="font-weight-bolder">
-                            <div class="d-flex flex-wrap justify-content-center">
-                                <div class="info_maintenance m-3 bg-success p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">5</p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-success p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">5</p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-success p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">56</p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-success p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">56</p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-success p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">86</p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-success p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">86</p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-success p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">22</p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-success p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">22</p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-success p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>title</u></p>
-                                    <p class="h4 text-center mt-3">4</p>
-                                </div>
-                            </div>
 
-                            <div class="text-center mt-3">
-                                <button class="mt-5 btn btn-lg btn-outline-light col-3 font-weight-bolder">
-                                    Autres
-                                </button>
-                            </div>
+                        <div class="bg-danger infosToSwitch">
+                            fiabilité
+                            disponibilité
+                            MTBF
                         </div>
-
-                        <div class="bg-danger d-none">
-                            bjr
-                        </div>
+                        <button class="mt-5 btn btn-lg btn-outline-light col-3 font-weight-bolder switchBtn">
+                            Autres
+                        </button>
                         
                     </div>
                 </div>
@@ -193,9 +132,7 @@
         <script src="jquery_3_2_1.js"></script>
         <script src="style/bootstrap-4.3.1-dist/js/bootstrap.js"></script>
 
-        <script>
-
-        </script>
+        <script src="index.js"></script>
     
     </body>
 </html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Application de maintenance : Section maintenance</title>
+        <link rel="stylesheet" href="style/bootstrap-4.3.1-dist/css/bootstrap.css">
+        
+    </head>
+    <body>
+        <a href="index.html" class="font-weight-bold position-fixed p-4 btn btn-info">
+            <span class="h5">Retour au tableau de bord</span>
+        </a>
+
+        <div class="container w-50 pt-5">
+
+            <h2 class="text-center bg-light py-2">Bienvenue
+                <span class="text-primary font-italic">Equipe A</span>
+            </h2>
+            <p class="mx-3">Veuiller renseigner dans la base de donnée l'opération de maintenance en cours 
+                ou ayant été exécutée.</p>
+
+            <form action="" class=" my-5">
+                
+                <div class="form-group row">
+                    <label for="nameMachine" class="h4 col-7">Nom de la machine défaillante</label>
+                    <input type="text" list="machineList" class="form-control col-5" required>
+                    <datalist name="nameMachine" id="machineList" class="form-control d-none">
+                        <option value="a">Machine A</option>
+                        <option value="b">Machine b</option>
+                        <option value="c">Machine c</option>
+                        <option value="d">Machine d</option>
+                        <option value="e">Machine e</option>
+                        <option value="f">Machine f</option>
+                    </datalist>
+                </div>
+                
+                <fieldset>
+                    <legend>Informations sur la défaillance</legend>
+                    
+                    <div class="form-group row">                        
+                        <div class="form-group col-5 border-right">
+                            <label class="font-weight-bold">Cause défaillance</label>
+
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="radio" name="codeA" value="1" id="codeA1" class="form-check-input">
+                                    <label for="codeA1" class="form-check-label">Accident imprévisible</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="codeA" value="2" id="codeA2" class="form-check-input">
+                                    <label for="codeA2" class="form-check-label">Cause intrinsèque detectable</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="codeA" value="3" id="codeA3" class="form-check-input">
+                                    <label for="codeA3" class="form-check-label">Cause intrinsèque non detectable</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="codeA" value="4" id="codeA4" class="form-check-input">
+                                    <label for="codeA4" class="form-check-label">Défaut d'entretien</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="codeA" value="5" id="codeA5" class="form-check-input">
+                                    <label for="codeA5" class="form-check-label">Mauvaise intervention antérieure</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="codeA" value="6" id="codeA6" class="form-check-input">
+                                    <label for="codeA6" class="form-check-label">Mauvaise conduite</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="codeA" value="7" id="codeA7" class="form-check-input">
+                                    <label for="codeA7" class="form-check-label">Consignes non respectées</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="codeA" value="8" id="codeA8" class="form-check-input">
+                                    <label for="codeA8" class="form-check-label">Autres</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-4 border-right">
+                            <label class="font-weight-bold">Nature défaillance</label>
+                            
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="radio" name="codeB" value="1" id="codeB1" class="form-check-input">
+                                    <label for="codeB1" class="form-check-label">Origine mécanique</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="codeB" value="2" id="codeB2" class="form-check-input">
+                                    <label for="codeB2" class="form-check-label">Origine électrique</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="codeB" value="3" id="codeB3" class="form-check-input">
+                                    <label for="codeB3" class="form-check-label">Origine électronique</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="codeB" value="4" id="codeB4" class="form-check-input">
+                                    <label for="codeB4" class="form-check-label">Origine hydraulique</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-3">
+                            <label class="font-weight-bold">Gravité défaillance</label>
+                            
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="radio" name="codeC" value="1" id="codeC1" class="form-check-input">
+                                    <label for="codeC1" class="form-check-label">CRITIQUE</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="codeC" value="2" id="codeC2" class="form-check-input">
+                                    <label for="codeC2" class="form-check-label">MAJEURE</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="codeC" value="3" id="codeC3" class="form-check-input">
+                                    <label for="codeC3" class="form-check-label">MINEURE</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="dateDefaillance" class="font-weight-bold col-6 text-right">Renseigner la date de la défaillance</label>
+                        <input type="date" name="dateDefaillance" id="dateDefaillance" required class="form-control col-3">
+                    </div>
+
+                </fieldset>
+                <hr>
+                <fieldset class="my-3">
+                    <legend>Travail de maintenance</legend>
+
+                    <div class="form-group row">
+                        <div class="form-group col-4">
+                            <label for="dateDefaillance" class="font-weight-bold">Date de début de maintenance</label>
+                            <input type="date" name="dateDefaillance" id="dateDefaillance" required class="form-control">
+                        </div>
+
+                        <div class="form-group col-4">
+                            <label for="dateDefaillance" class="font-weight-bold">Durée de l'intervention (Hrs)</label>
+                            <input type="number" name="dateDefaillance" id="durationIntervention" min="0.001" required class="form-control" placeholder="Nombre d'heures">
+                        </div>
+
+                        <div class="form-group col-4">
+                            <label for="dateDefaillance" class="font-weight-bold">Date de remise en service de la machine</label>
+                            <input type="date" name="dateDefaillance" id="dateServiceOn" required class="form-control">
+                        </div>
+                    </div>
+
+
+                </fieldset>
+
+                <div class="text-center my-5">
+                    <input type="submit" value="Sauvegarder" class="btn btn-lg btn-success col-5 font-weight-bold">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
