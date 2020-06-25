@@ -15,41 +15,12 @@
             <div class="col-3 d-flex flex-column h-100 rounded p-0">
                 <div class="h-50 bg-light border-bottom border-light" id="machine_list">
                     <div class="list-group text-center text-wrap h-100" role="tablist">
-                        <a class="p-0 list-group-item list-group-item-action active" data-toggle="list" href="#list-test1" role="tab">bjr</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
-                        <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#list-test2" role="tab">bye</a>
+                        
+                        {% for machine in machines %}
+                            <a class="p-0 list-group-item list-group-item-action" data-toggle="list" href="#{{machine.id}}" role="tab">{{machine.name}}</a>
+                        {% else %}
+                            <i class="pt-3 text-danger font-weight-bold">There's no machines register !</i>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="h-50 p-2 connexion_maintenance border-top border-light">
@@ -79,51 +50,54 @@
 
             <div class="col-9 p-4 bg-secondary position-relative" id="machine_dashboard">
                 <div class="tab-content">
-                    <div class="tab-pane fade show active" id={{machine.idText}} role="tabpanel">
-                        <div class="d-none infosToSwitch">
-                            <div class="font-weight-bolder d-flex flex-wrap justify-content-center" >
-                                <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>Machine défaillante</u></p>
-                                    <p class="h4 text-center mt-3">{{machine.name}}</p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>Défaillance</u></p>
-                                    <p class="h4 text-center mt-3"> {{machine.typeDefaillance}} </p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>Date de défaillance</u></p>
-                                    <p class="h4 text-center mt-3"> {{machine.dateDefaillance}} </p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>Date d'intervention</u></p>
-                                    <p class="h4 text-center mt-3"> {{machine.dateIntervention}} </p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>Equipe d'intervention</u></p>
-                                    <p class="h4 text-center mt-3"> {{machine.teamIntervention}} </p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>Durée d'intervention</u></p>
-                                    <p class="h4 text-center mt-3"> {{machine.interventionDuration}} </p>
-                                </div>
-                                <div class="info_maintenance m-3 bg-warning p-2 rounded">
-                                    <p class="h5 text-center text-light"><u>Date de remise en service</u></p>
-                                    <p class="h4 text-center mt-3"> {{machine.dateServiceOn}} </p>
+                    {% for machine in machines %}
+                        <div class="tab-pane fade" id={{machine.id}} role="tabpanel">
+                            <div class="d-none infosToSwitch">
+                                <div class="font-weight-bolder d-flex flex-wrap justify-content-center" >
+                                    <div class="info_maintenance m-3 bg-warning p-2 rounded">
+                                        <p class="h5 text-center text-light"><u>Machine défaillante</u></p>
+                                        <p class="h4 text-center mt-3">{{machine.name}}</p>
+                                    </div>
+                                    <div class="info_maintenance m-3 bg-warning p-2 rounded">
+                                        <p class="h5 text-center text-light"><u>Défaillance</u></p>
+                                        <p class="h4 text-center mt-3"> {{machine.typeDefaillance}} </p>
+                                    </div>
+                                    <div class="info_maintenance m-3 bg-warning p-2 rounded">
+                                        <p class="h5 text-center text-light"><u>Date de défaillance</u></p>
+                                        <p class="h4 text-center mt-3"> {{machine.dateDefaillance}} </p>
+                                    </div>
+                                    <div class="info_maintenance m-3 bg-warning p-2 rounded">
+                                        <p class="h5 text-center text-light"><u>Date d'intervention</u></p>
+                                        <p class="h4 text-center mt-3"> {{machine.dateIntervention}} </p>
+                                    </div>
+                                    <div class="info_maintenance m-3 bg-warning p-2 rounded">
+                                        <p class="h5 text-center text-light"><u>Equipe d'intervention</u></p>
+                                        <p class="h4 text-center mt-3"> {{machine.teamIntervention}} </p>
+                                    </div>
+                                    <div class="info_maintenance m-3 bg-warning p-2 rounded">
+                                        <p class="h5 text-center text-light"><u>Durée d'intervention</u></p>
+                                        <p class="h4 text-center mt-3"> {{machine.interventionDuration}} </p>
+                                    </div>
+                                    <div class="info_maintenance m-3 bg-warning p-2 rounded">
+                                        <p class="h5 text-center text-light"><u>Date de remise en service</u></p>
+                                        <p class="h4 text-center mt-3"> {{machine.dateServiceOn}} </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
+                            
 
-                        <div class="bg-danger infosToSwitch">
-                            fiabilité
-                            disponibilité
-                            MTBF
+                            <div class="bg-danger infosToSwitch">
+                                fiabilité
+                                disponibilité
+                                MTBF
+                            </div>
+                            <button class="mt-5 btn btn-lg btn-outline-light col-3 font-weight-bolder switchBtn">
+                                Autres
+                            </button>
+                            
                         </div>
-                        <button class="mt-5 btn btn-lg btn-outline-light col-3 font-weight-bolder switchBtn">
-                            Autres
-                        </button>
-                        
-                    </div>
+                    {% endfor %}
+                    
                 </div>
                 
             </div>
