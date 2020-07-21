@@ -17,6 +17,171 @@
       Application de gestion de la maintenance
     </div>
 
+    <div class="w-100 h-100 d-flex flex-row">
+      <div class="col-3 d-flex flex-column h-100 rounded p-0">
+        <div class="h-50 bg-light border-bottom border-light" id="machine_list">
+          <div class="list-group text-center text-wrap h-100" role="tablist">
+            {% for machine in machineAll %}
+            <a
+              class="p-0 list-group-item list-group-item-action"
+              data-toggle="list"
+              href="#ok"
+              role="tab"
+              >{{machine.machineName}}
+              <span class="badge badge-pill badge-secondary pt-0">
+                ({{machine.infoInterventionAll.all|length}})
+              </span>
+            </a>
+            {% empty %}
+            <i class="pt-3 text-danger font-weight-bold"
+              >There's no machines register !</i
+            >
+            {% endfor %}
+          </div>
+        </div>
+        <div class="h-50 p-2 connexion_maintenance border-top border-light">
+          <form action="{% url 'maintenance' %}" method="POST" class="m-3">
+            {% csrf_token %}
+            <h4>Connexion Equipe de maintenance</h4>
+
+            {% if teamList %}
+            <div>
+              <select
+                name="teamName"
+                id="teamName"
+                class="form-control mt-2"
+                required
+              >
+                <option value="" selected disabled>
+                  selectionner l'équipe de maintenance
+                </option>
+                {% for team in teamList %}
+                <option value="{{team.nameTeam}}">{{team.nameTeam}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-group mt-3">
+              <label for="passwordTeam">
+                Entrer le Mot de passe de l'équipe
+              </label>
+              <input
+                type="password"
+                placeholder="password"
+                required
+                id="passwordTeam"
+                class="form-control"
+                name="password"
+              />
+            </div>
+
+            <div class="text-center">
+              <input
+                type="submit"
+                value="Se connecter"
+                class="btn btn-primary"
+              />
+            </div>
+            {% else %}
+            <p class="p-3 text-danger text-center">
+              Pas d'équipe de maintenance enregistrée
+            </p>
+            {% endif %}
+          </form>
+        </div>
+      </div>
+
+      <div
+        class="col-9 p-4 bg-secondary position-relative"
+        id="machine_dashboard"
+      >
+        <div class="tab-content">
+          {% for machine in machineAll %}
+          <div class="tab-pane fade" id="ok" role="tabpanel">
+            <div class="m-3 bg-light">
+              <p class="h2 text-center p-3">
+                {{machine.machineName}}
+                <span class="badge badge-pill badge-secondary pt-0"
+                  >({{machine.infoInterventionAll.all|length}})</span
+                >
+              </p>
+            </div>
+
+            <div class="infosToSwitch table-responsive">
+              <table class="table table-hover text-light">
+                <thead>
+                  <tr>
+                    <th>Défaillance</th>
+                    <th>Date de défaillance</th>
+                    <th>Date d'intervention</th>
+                    <th>Equipe d'intervention</th>
+                    <th>Durée d'intervention</th>
+                    <th>Date de remise en service</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {% for infoIntervention in machine.infoInterventionAll.all %}
+                  <tr
+                    class="bg-warning text-center"
+                    data-gravite="{{infoIntervention.defaillanceList.gravite}}"
+                    data-date-service-on="{{infoIntervention.dateServiceOn}}"
+                    data-date-intervention="{{infoIntervention.dateIntervention}}"
+                    data-duration-intervention="{{infoIntervention.durationIntervention|floatformat}}"
+                    data-date-defaillance="{{infoIntervention.dateDefaillance}}"
+                    data-machine-id="{{machine.id}}"
+                  >
+                    <td>
+                      {{infoIntervention.defaillanceList}}
+                    </td>
+                    <td>{{infoIntervention.dateDefaillance}}</td>
+                    <td>{{infoIntervention.dateIntervention}}</td>
+                    <td>{{infoIntervention.maintainerTeam}}</td>
+                    <td>
+                      {{infoIntervention.durationIntervention|floatformat}}
+                    </td>
+                    <td>{{infoIntervention.dateServiceOn}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <div
+              class="bg-danger infosToSwitch d-none calculDiv"
+              data-machine-id="{{machine.id}}"
+            >
+              <div class="bg-primary">
+                <ul class="list-group">
+                  <li class="list-group-item m-2">
+                    MTBF =
+                    <code class="h4"> <span class="mtbf"></span> heures</code>
+                  </li>
+                  <li class="list-group-item m-2">
+                    Disponibilité =
+                    <code class="h4"
+                      ><span class="disponibility"></span> heures</code
+                    >
+                  </li>
+                  <li class="list-group-item m-2">
+                    Fonction fiabilité :
+                    <code class="h3">exp(-r.t)</code> avec r =
+                    <code class="h4 fiability"></code>,
+                    <strong>t en Hrs</strong>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button
+              class="mt-5 btn btn-lg btn-outline-light col-3 font-weight-bolder switchBtn"
+            >
+              Autres
+            </button>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
     <script src="{% static 'jss/jquery_3_3_1.js' %}"></script>
     <script src="{% static 'style/bootstrap-4.3.1-dist/js/bootstrap.js' %}"></script>
 
