@@ -21,11 +21,11 @@
       <div class="col-3 d-flex flex-column h-100 rounded p-0">
         <div class="h-50 bg-light border-bottom border-light" id="machine_list">
           <div class="list-group text-center text-wrap h-100" role="tablist">
-            {% for machine in machineAllOui %}
+            {% for machine in machineAll %}
             <a
               class="p-0 list-group-item list-group-item-action"
               data-toggle="list"
-              href="#ok"
+              href="#machine{{machine.id}}"
               role="tab"
               >{{machine.machineName}}
               <span class="badge badge-pill badge-secondary pt-0">
@@ -96,7 +96,7 @@
       >
         <div class="tab-content">
           {% for machine in machineAll %}
-          <div class="tab-pane fade" id="ok" role="tabpanel">
+          <div class="tab-pane fade" id="machine{{machine.id}}" role="tabpanel">
             <div class="m-3 bg-light">
               <p class="h2 text-center p-3">
                 {{machine.machineName}}
