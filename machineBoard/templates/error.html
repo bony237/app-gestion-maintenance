@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Error !!</title>
+
+    <link
+      rel="stylesheet"
+      href="{% static 'style/bootstrap-4.3.1-dist/css/bootstrap.css' %}"
+    />
+  </head>
+
+  <body style="height: 100%;">
+    <div class="bg-dark text-white h-25 w-100 my-5 py-3">
+      <div class="m-5">
+        <p class="h2 my-3">
+          Vous recevez cette
+          <span class="text-danger"> page d'erreur </span> car :
+          <span class="bg-success" hidden> {{error}} </span>
+        </p>
+        <ul>
+          <li>Vous avez mal remplit le formulaire</li>
+          <li>
+            Vous essayer d'acceder à des informations sensibles sans
+            autorisation
+          </li>
+          <li>Vous avez commit une erreur sur votre Mot de Passe d'équipe</li>
+        </ul>
+        <p>
+          Veuillez retourner au l'interface d'<a
+            href="{% url 'index' %}"
+            class="font-weight-bold h5"
+            >accueil.
+          </a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
